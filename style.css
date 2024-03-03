@@ -8,9 +8,23 @@
 html,body{
     height: 100%;
     width: 100%;
+    position: relative;
+}
+#wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    
+    
+   
 }
 
-#stars {
+
+  .stars {
     width: 2px;
     height: 2px;
     background: transparent;
@@ -194,7 +208,7 @@ html,body{
     696px 1654px #fff, 1144px 60px #fff;
     }
 
-#stars:after {
+.stars:after {
     content: '';
     position: absolute;
     top: 2000px;
@@ -379,7 +393,7 @@ html,body{
     659px 1860px #fff, 388px 1412px #fff, 1212px 458px #fff, 755px 1468px #fff,
     696px 1654px #fff, 1144px 60px #fff;
     }
-#stars2 {
+.stars2 {
     width: 3px;
     height: 3px;
     background: transparent;
@@ -437,7 +451,7 @@ html,body{
     986px 1529px #fff, 1667px 1137px #fff;
     }    
 
-#stars2:after {
+.stars2:after {
     content: '';
     position: absolute;
     top: 2000px;
@@ -497,7 +511,7 @@ html,body{
     986px 1529px #fff, 1667px 1137px #fff;
     }
 
-#stars3 {
+.stars3 {
     width: 4px;
     height: 4px;
     background: transparent;
@@ -529,7 +543,7 @@ html,body{
     494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
     498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
         }
-#stars3:after {
+.stars3:after {
     content: '';
     position: absolute;
     top: 2000px;
@@ -562,7 +576,7 @@ html,body{
     16px 1650px #fff, 1021px 1075px #fff, 723px 424px #fff, 1175px 41px #fff,
     494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
     498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
-    }
+    }  
 @keyframes animStar {
         from {
         transform: translateY(0px);
@@ -571,8 +585,8 @@ html,body{
         transform: translateY(-2000px)
         }
      }
-
-
+     
+      
 #cursor{
     height: 10px;
     width: 10px;
@@ -581,6 +595,7 @@ html,body{
     position: fixed;
     z-index: 99;
 }
+
 
 #cursor-blur{
     height: 260px;
@@ -620,7 +635,7 @@ nav{
     top: 0;
     left: 0;
     position: fixed;
-    z-index: 50;
+    z-index: 100;
 }
 
 #logo{
@@ -667,7 +682,7 @@ nav{
     left: 0;
     bottom: -100%;
     border-radius: 50%;
-    transition: all ease 0.4s;
+    transition: all ease 0.3s;
 
 }
 
@@ -693,12 +708,15 @@ nav{
 
 .home-content{
     width: 100%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     flex-direction: column;
     z-index: 30;
+    position: relative;
+    
     
 }
 
@@ -707,6 +725,7 @@ nav{
     text-align: center;
     font-weight: 1200;
     position: relative;
+    margin: 0 70px;
 }
 
 .home-content h2{
@@ -725,12 +744,72 @@ nav{
    z-index: -1;
 }
 
-#page2{
-    height: 100vh;
-    width: 100%;
-    
+
+.page{
+    height: 100%;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
     
 }
 
+.box{
+    height: 80vh;
+    width: 80vw;
+    background-color: rgba(0, 0, 0, 0.506);
+    border-radius: 2%;
+    display:flex;
+    z-index: 80;
+    align-items: center;
+    justify-content: center;
+    
+
+}
 
 
+#about{
+    height: 100%;
+    width: 60%;
+    padding: 50px 100px;
+    padding-right: 15px;
+    font-size: 30px;
+    color: #fff;
+    display: grid;
+    justify-content: left; 
+    
+    flex-direction: column;
+}
+.title{
+    margin-top: 20px;
+    font-size: 100px;
+    -webkit-text-stroke: 1px #ff9627;
+    color: transparent;
+    
+}
+
+#about h4{
+    width: 100%;
+    color: #fff;
+    font-size:25px ;
+    font-weight: 300;
+    padding: 20px;
+    padding-left: 0%;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    margin-top: 50px;
+
+
+}
+#about h4 span{
+    color: #ff9627;
+}
+
+#about-img{
+    
+    height: 80%;
+   
+}
+#join .title{
+    display: flex;
+    justify-content: right;
+}
