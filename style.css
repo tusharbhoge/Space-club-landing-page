@@ -1267,7 +1267,8 @@ nav{
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-@media(min-width:1201px) and (max-width:1400px){
+
+@media(min-width:1201px) {
     .home-content h1{
         font-size: 80px;
     }
@@ -1583,6 +1584,7 @@ nav{
         padding-top: 10px;
         margin-top: 15vh;
         overflow: auto;
+        
     }
     .title{
         font-size: 50px;
