@@ -9,7 +9,66 @@ html,body{
     height: 100%;
     width: 100%;
     position: relative;
+    
 }
+html ::-webkit-scrollbar{
+    display: none;
+}
+
+/* start buffer */
+
+#buffer{
+    height: 100%;
+    width: 100%;
+    background-color:#000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation:slideUp 0.7s  ease-in-out forwards;
+    animation-delay: 3s;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+@keyframes slideUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); } 
+  }
+
+#buffer>img{
+    width: 300px;
+    z-index: 1000;
+    animation: rocketUpDown 3s ease-in-out forwards;
+}
+
+@keyframes rocketUpDown{
+    0% { transform: translateY(0px) ; }
+    10% { transform:  translateY(20px) ; }
+    20% { transform:  translateY(-20px) ; }
+    30% { transform: translateY(20px) ; }
+    40% { transform: translateY(-20px) ; }
+    50% { transform:  translateY(20px) ; }
+    60% { transform:  translateY(-20px) ; }
+    70% { transform: translateY(20px) ; }
+    90% { transform:  translateY(300px) ; }
+    100% { transform: translateY(250px) ; }
+
+}
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 998;
+    opacity: 0.3;
+  }
+
+
+ /* background animation */
+
 #wrapper{
     position: fixed;
     top: 0;
@@ -17,13 +76,9 @@ html,body{
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-
-    
-    
-   
 }
 
-
+/*
   .stars {
     width: 2px;
     height: 2px;
@@ -586,14 +641,16 @@ html,body{
         }
      }
      
-      
+     
+/* cursor animation   */
+
 #cursor{
     height: 10px;
     width: 10px;
     background-color: #47d1ff;
     border-radius: 50%;
     position: fixed;
-    z-index: 99;
+    z-index: 500;
 }
 
 
@@ -613,6 +670,7 @@ html,body{
     overflow: hidden;
 }
 
+/* page1-home */
 #page1{
     height: 100vh;
     width: 100%;
@@ -642,11 +700,9 @@ nav{
     height: 130px;
     padding: 2vh 0;
     margin: 0%;
-   
-   
 }
 
-#nav-2{
+.nav-2{
     color: rgba(240, 248, 255, 0.843);
     display: flex;
     align-items: center;
@@ -654,7 +710,7 @@ nav{
     
 }
 
-#nav-2 h4{
+.nav-2 h4{
     padding: 10px 20px;
     border: 1px solid #777777af ;
     border-radius: 50px;
@@ -664,7 +720,7 @@ nav{
     
 }
 
-#nav-2 h4 a{
+.nav-2 h4 a{
     color: aliceblue;
     font-weight: 500;
     font-size: 20px;
@@ -672,8 +728,14 @@ nav{
     z-index: 40;
     position: relative;
 }
+#toggle{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+    display: none;
+}
 
-#nav-2 h4::after{
+.nav-2 h4::after{
     content: "";
     position: absolute;
     height: 100%;
@@ -686,15 +748,46 @@ nav{
 
 }
 
-#nav-2 h4:hover::after{
+.nav-2 h4:hover::after{
     bottom: 0;
     border-radius: 0;
 }
 
-#nav-2 h4:hover a{
+.nav-2 h4:hover a{
     color:black;
 }
 
+.dropdown-menu {
+    width: 200px;
+    position: fixed;
+    padding: 20px;
+    top: 13vh;
+    font-size: 25px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000dc;
+    backdrop-filter: blur (15px);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 101;
+    display: none;
+    } 
+.dropdown-menu>h4{
+    width: 100%;
+    padding: 5px 0px;
+    border:1px solid #4545459c;
+    border-radius: 25px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* background img */
 #cover1{
     object-fit: cover;
     height: 100vh;
@@ -705,7 +798,7 @@ nav{
     filter: brightness(0.75);
 
 }
-
+/* page1 content */
 .home-content{
     width: 100%;
     
@@ -716,7 +809,7 @@ nav{
     flex-direction: column;
     z-index: 30;
     position: relative;
-    
+    padding-top: 200px;
     
 }
 
@@ -726,6 +819,8 @@ nav{
     font-weight: 1200;
     position: relative;
     margin: 0 70px;
+    
+
 }
 
 .home-content h2{
@@ -733,6 +828,24 @@ nav{
     font-size: 35px;
     font-weight: 700;
     margin: 20px 0px;
+    padding-top: 80px;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.883));
+}
+
+#sponser{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+#sponser>h2,img{
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.883));
+    padding: 0;
+}
+.home-content>#sponser>img{
+    width: 200px;
 }
 .home-content h1::before{
     content: "ANTARIKSH SPACE CLUB";
@@ -742,9 +855,11 @@ nav{
     left: -4px;
     -webkit-text-stroke:2px #47d1ff;
    z-index: -1;
+   
+   
 }
 
-
+/* for all pages */
 .page{
     height: 100%;
     width: 100%; 
@@ -758,32 +873,33 @@ nav{
     width: 80vw;
     background-color: rgba(0, 0, 0, 0.506);
     border-radius: 2%;
-    display:flex;
-    z-index: 80;
-    align-items: center;
-    justify-content: center;
-    
-
+    display: flex;
+    z-index: 21;
+    padding: 50px 50px;
+    padding-top: 20px;
+    overflow:hidden;
+    margin-top: 17vh;
 }
 
-
+/* page2-about */
 #about{
     height: 100%;
-    width: 60%;
-    padding: 50px 100px;
-    padding-right: 15px;
+    width: 70%;
     font-size: 30px;
     color: #fff;
-    display: grid;
-    justify-content: left; 
-    
+    display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 .title{
-    margin-top: 20px;
+ 
     font-size: 100px;
     -webkit-text-stroke: 1px #ff9627;
     color: transparent;
+    text-decoration: underline 2px #fff;
+    text-underline-offset: 20px;
+    margin-bottom: 20px;
+    
     
 }
 
@@ -792,12 +908,10 @@ nav{
     color: #fff;
     font-size:25px ;
     font-weight: 300;
-    padding: 20px;
     padding-left: 0%;
-    letter-spacing: 2px;
-    word-spacing: 3px;
-    margin-top: 50px;
-
+  
+    margin-top: 10px;
+    line-height: 40px;
 
 }
 #about h4 span{
@@ -805,11 +919,798 @@ nav{
 }
 
 #about-img{
-    
+    align-self: center;
     height: 80%;
-   
+    animation: space-drift 8s ease-in-out infinite;
+    
 }
-#join .title{
+
+.page2-content{
     display: flex;
-    justify-content: right;
 }
+.small{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.small-img{
+    width: 200px;
+    animation: space-drift 8s ease-in-out infinite;
+    display: none;
+}
+
+/* page3-missions */
+
+#missions .title{
+    
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+#page3-content{
+    
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+}
+.card{
+    height: 80%;
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.634);
+    padding: 5px;
+    margin: 20px;
+    border-radius: 2%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: end;
+    position: relative;
+    transition: all ease 0.3s;
+
+    
+}
+#missions{
+    height: 100%;
+    width: 100%;
+   
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    /* flex-wrap: wrap; */
+
+}
+
+#card1{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/027/543/051/original/chandrayaan-indian-rocket-illustration-chandrayaan-rocket-mission-launched-by-india-2023-with-tricolor-indian-flag-chandrayaan-3-successful-launch-illustration-isro-moon-mission-vector.jpg);
+    
+}
+#card2{
+    background-image: url(https://img.freepik.com/premium-photo/aditya-l1-mission-satellite-orbiting-sun-l1-point_789916-3011.jpg);
+    
+}
+#card3{
+    background-image: url(https://images.yourstory.com/cs/2/e35953e0c10a11eeaef14be6ff40ae87/Imagef87h-1709133018456.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces);
+}
+
+.card >h4{
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    padding:40px;
+    text-shadow: 0px 0px 10px rgba(249, 120, 14, 0.718)
+    
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 20px;
+    background-color: #000000a8;
+    border-radius: 2%;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+.overlay>h4{
+    font-size: 24px;
+    margin: 10px;
+    color: #fff;
+}
+
+.overlay>p{
+    font-size: 20px;
+    color: #fff;
+}
+
+.card:hover .overlay{
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* page-3.1 upcoming mission */
+#page3-1-content{
+    display: flex;
+    flex-direction: column;
+}
+
+#upcoming-mission{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+
+#upcoming-mission >#text{
+    width:60%;
+    display: flex;
+    flex-direction: column;
+
+}
+#upcoming-mission >#text> h4{
+    color: #fff;
+    font-size:25px ;
+    font-weight: 300;
+    padding-left: 0%;
+    margin-top: 30px;
+    line-height: 40px;
+}
+#upcoming-mission >#text> h2{
+    color: #fff;
+    font-size:50px ;
+    font-weight: 700;
+    padding-left: 0%;
+    margin-top: 10px;
+    line-height: 40px;
+}
+#upcoming-mission > img{
+    height: auto;
+    width: 35%;
+    animation: space-drift 7s ease-in-out infinite;
+}
+
+@keyframes space-drift {
+    0% { transform: translateX(0px) translateY(0px) ; }
+    33% { transform: translateX(10px) translateY(-10px) ; }
+    66% { transform: translateX(20px) translateY(0px) ; }
+    100% { transform: translateX(0px) translateY(0px) ; }
+  }
+
+/* page4 team */
+
+#page4>title{
+    justify-self: center;
+}
+#page4-content{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+#team{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: center;
+    
+}
+
+.team-row{
+    width: 100%;    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+
+.tcard{
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+
+.photo>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.tcard>h4{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.tcard>p{
+    color: #ffffffcc;
+    font-size: 25px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* page5 join us */
+
+#page5-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#page5-content>.title{
+    
+    align-self: flex-start;
+    padding-left: 200px;
+}
+#container5{
+    width: 100%;
+    height: 90%;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+
+}
+#page5-content>img{
+    width: 300px;
+}
+
+#page5-content> #container5 >.formbox{
+    background-color: #000000c3;
+  width:50%;
+  padding: 30px 40px;
+  gap: 10px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  border: 1px solid #fff;
+  
+}
+#page5-content> #container5 >.formbox>form{
+    width: 100%;
+    display: grid;
+    z-index: 600;
+    
+
+}
+
+.input{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    width: 100%;
+    margin: 10px;
+
+}
+
+.input>h4{
+    grid-column: span 1;
+    align-self: center;
+    justify-self:end;
+    font-size: 25px;
+}
+.inputmessage{
+    display: flex;
+    
+}
+.btn2{
+    width: 100px;
+    padding: 5px 10px;
+    color: #000;
+    justify-self: center;
+    margin-top: 10px;
+    background-color: rgb(255, 136, 45);
+    border: 2px solid #641900;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #642f00;
+}
+
+.btn2:active{
+    transform: scale(0.8);
+}
+
+.box5{
+    width: 300px;
+    gap: 20px;
+    border-radius: 3px;
+    padding-left: 10px;
+    background-color: #ffffffef;
+
+    
+}
+
+
+/* footer */
+
+.footer{
+    width: 100%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.754);
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16vh;
+
+}
+
+
+.footer>p{
+    color: #fff;
+    font-size: 40px;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!responsiveness!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+@media(min-width:1201px) and (max-width:1400px){
+    .home-content h1{
+        font-size: 80px;
+    }
+    .box{
+        width: 90vw;
+    }
+    .title{
+        font-size: 70px;
+    }
+    /* page2 */
+    #about>h4{
+        font-size: 23px;
+    }
+    #about{
+        width: 80%;
+        overflow: scroll;
+    }
+    #about-img{
+        width: 350px;
+        height: auto;
+    }
+    /* page3 */
+    .card >h4{
+        font-size: 25px;
+        padding: 25px;
+    }
+    .overlay>p{
+        font-size: 18px;
+    }
+    /* page3.1 */
+    #upcoming-mission >#text> h4{
+        font-size: 23px;
+    }
+    #upcoming-mission >#text> h2{
+        font-size: 40px;
+    }
+    #upcoming-mission >#text{
+        overflow: scroll;
+        padding-bottom: 10px;
+        width: 70%;
+    }
+    #upcoming-mission > img{
+        width: 30%;
+    }
+    /* page4 */
+    .photo>img{
+        width: 125px;
+        height: 125px;
+    }
+    .tcard>h4{
+        font-size: 27px;
+    }
+    .tcard>p{
+        font-size: 22px;
+    }
+    /* page5 */
+    #page5-content>#container5>img{
+        width: 350px;
+        height: 350px;
+        align-self: center;
+    }
+    #container5{
+        padding: 15px;
+    }
+    #page5-content> #container5 >.formbox{
+        width: 600px;
+        padding-top:  20px;
+    }
+}
+
+
+@media(min-width:1025px) and (max-width:1200px){
+    /* navbar */
+    #logo{
+        height: 110px;
+        padding: 1.7vh 0;
+        margin: 0%;
+    }
+    #nav-2 h4 a{
+        font-size: 18px;
+    }
+    
+    /* page1 */
+    .home-content h1{
+        font-size: 65px;
+    }
+    .home-content h2{
+        font-size: 30px;
+    }
+    .box{
+        width: 90vw;
+    }
+    .title{
+        font-size: 60px;
+    }
+    /* page2 */
+    #about>h4{
+        font-size: 21px;
+        line-height: 32px;
+    }
+    #about{
+        width: 80%;
+        overflow: scroll;
+    }
+    #about-img{
+        width: 320px;
+        height: auto;
+        justify-content: center;
+    }
+    /* page3 */
+    .card >h4{
+        font-size: 25px;
+        padding: 20px;
+    }
+    #page3-content{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .overlay>p{
+        font-size: 18px;
+    }
+    /* page3.1 */
+    #upcoming-mission >#text> h4{
+        font-size: 21px;
+        line-height: 32px;
+    }
+    #upcoming-mission >#text> h2{
+        font-size: 30px;
+    }
+    #upcoming-mission >#text{
+        overflow: scroll;
+        padding-bottom: 10px;
+        width: 70%;
+    }
+    #upcoming-mission > img{
+        width: 30%;
+    }
+    /* page4 */
+    .photo>img{
+        width: 120px;
+        height: 120px;
+    }
+    .tcard>h4{
+        font-size: 25px;
+    }
+    .tcard>p{
+        font-size: 20px;
+    }
+    /* page5 */
+    #page5-content>#container5>img{
+        width: 300px;
+        height: 300px;
+        align-self: center;
+    }
+    #container5{
+        padding: 15px;
+    }
+    #page5-content> #container5 >.formbox{
+        width: 600px;
+        
+    }
+    .input>h4{
+        font-size: 22px;
+    }
+
+}
+
+@media(min-width:769px) and (max-width:1024px){
+    #buffer>img{
+        width: 150px;
+    }
+    #cursor,#cursor-blur{
+        display: none;
+    }
+    /* navbar */
+    #nav-2>h4{
+        display: none;
+    }
+    #toggle{
+        display: block;
+    }
+    
+    #logo{
+        height: 110px;
+        padding: 1.7vh 0;
+        margin: 0%;
+    }
+    #nav-2 h4 a{
+        font-size: 18px;
+    }
+    
+    /* page1 */
+    .home-content h1{
+        font-size: 65px;
+    }
+    .home-content h2{
+        font-size: 30px;
+    }
+    .box{
+        width: 90vw;
+    }
+    .title{
+        font-size: 60px;
+    }
+    /* page2 */
+    #about>h4{
+        font-size: 21px;
+        line-height: 32px;
+    }
+    #about{
+        width: 100%;
+        overflow: scroll;
+    }
+    #about-img{
+        display: none;
+
+    }
+    .small-img{
+        width: 200px;
+        display: block;
+    }
+    /* page3 */
+    .card >h4{
+        font-size: 25px;
+        padding: 20px;
+    }
+    #page3-content{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .overlay>p{
+        font-size: 18px;
+    }
+    /* page3.1 */
+    #upcoming-mission >#text> h4{
+        font-size: 21px;
+        line-height: 32px;
+    }
+    #upcoming-mission >#text> h2{
+        font-size: 30px;
+    }
+    #upcoming-mission >#text{
+        overflow: scroll;
+        padding-bottom: 10px;
+        width: 70%;
+    }
+    #upcoming-mission > img{
+        width: 30%;
+    }
+    /* page4 */
+    .photo>img{
+        width: 120px;
+        height: 120px;
+    }
+    .tcard>h4{
+        font-size: 25px;
+    }
+    .tcard>p{
+        font-size: 20px;
+    }
+    /* page5 */
+    #page5-content>#container5>img{
+        display: none;
+    }
+    #container5{
+        padding: 15px;
+    }
+    #page5-content> #container5 >.formbox{
+        width: 600px;
+    }
+    .input>h4{
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width:768px) {
+    #buffer>img{
+        width: 150px;
+    }
+    #cursor,#cursor-blur{
+        display: none;
+    }
+    #nav-2>h4{
+        display: none;
+    }
+    #toggle{
+        display: block;
+    }
+    #logo{
+        height: 90px;
+        padding: 1.7vh 0;
+        margin: 0%;
+    }
+    #nav-2 h4 a{
+        font-size: 18px;
+    }
+    /* page1 */
+    .home-content h1{
+        font-size: 55px;
+        margin: 0 30px;
+    }
+    .home-content h2{
+        font-size: 25px;
+        margin: 20px 10px;
+        padding-top: 20px;
+    }
+    .box{
+        width: 100vw;
+        height: 97vh;
+        border-radius: 0;
+        padding: 20px 20px;
+        padding-top: 10px;
+        margin-top: 15vh;
+        overflow: auto;
+    }
+    .title{
+        font-size: 50px;
+        
+    }
+    #sponser{
+        gap: 0px;
+    }
+    /* page2 */
+    #about>h4{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    #about{
+        width: 100%;
+        height: auto;
+    }
+    #about-img{
+        display: none;
+
+    }
+    .small-img{
+        width: 200px;
+        display: block;
+    }
+
+    /* page3 */
+    #missions{
+        height: 100%;
+        width: 100%;
+       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .card{
+        width: 350px;
+        height: 500px;
+    }
+    #page3{
+        height: auto;
+
+    }
+    #page3-content{
+        height: 100%;
+        margin-bottom: 3vh;
+    }
+
+
+    /* page3.1 */
+    #page3-1-content>.title{
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+    #upcoming-mission{
+        flex-direction: column;
+    }
+    #upcoming-mission >#text{
+        width: 100%;
+    }
+    #upcoming-mission > img{
+        width: 50%;
+    }
+    #upcoming-mission >#text> h4{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    #upcoming-mission >#text> h2{
+        font-size: 30px;
+    }
+    /* page4 */
+    #team{
+        height: fit-content;
+        flex-wrap: wrap;
+    }
+    .team-row{
+
+        flex-wrap: wrap;
+    }
+    #page4,#page4-content{
+        height: min-content;
+    }
+
+
+
+    /* page5 */
+    #page5-content>#container5>img{
+        display: none;
+    }
+    #page5-content> #container5 >.formbox{
+        width: 100%;
+        padding: 20px 10px;
+    }
+    #container5{
+        padding: 0;
+        height: 80%;
+    }
+    .formbox>form>.input>h4{
+        font-size: 20px;
+    }
+    .formbox>h1{
+        font-size: 20px;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        gap: 0px;
+        margin: 10px;
+    }
+    .input>h4{
+        align-self: start;
+    }
+    .box5{
+        width: 90%;
+        padding: 5px 15px;
+    }
+    #page5-content>.title{
+        padding-left: 50px;
+    }
+
+    /* footer */
+    .footer>p{
+        font-size: 20px;
+    }
+}
+
+
+
